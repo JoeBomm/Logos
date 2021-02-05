@@ -18,8 +18,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     /** Called when the user taps the True or False button */
-    fun openTrueOrFalse(view: View) {}
+    fun openTrueOrFalse(view: View) {
+        val intent = Intent(this, TrueOrFalseActivity::class.java).apply {}
+        startActivity(intent)
+    }
 
     /** Called when the user taps the About button */
-    fun openAbout(view: View) {}
+    fun openAbout(view: View) {
+        val intent = Intent(this, AboutActivity::class.java).apply {}
+        startActivity(intent)
+    }
 }
