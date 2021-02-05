@@ -27,6 +27,7 @@
         android:layout_marginTop="276dp"
         android:onClick="openTwosCompliment"
         android:text="@string/button_twos_compliment"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -38,6 +39,7 @@
         android:layout_marginTop="28dp"
         android:onClick="openTrueOrFalse"
         android:text="@string/button_true_or_false"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
@@ -49,6 +51,7 @@
         android:layout_marginTop="16dp"
         android:onClick="openAbout"
         android:text="@string/button_about"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

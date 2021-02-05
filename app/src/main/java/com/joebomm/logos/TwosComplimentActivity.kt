@@ -22,10 +22,12 @@ class TwosComplimentActivity : AppCompatActivity() {
         // function to update textViewBinary
         val randomNumber = Random.nextInt(1, 256)
         val textView = findViewById<TextView>(R.id.textViewBinary)
+        val textViewResult = findViewById<TextView>(R.id.textViewResult)
         val editText = findViewById<EditText>(R.id.editTextBinaryInput)
         val binaryNum = toBinary(randomNumber)
         textView.text = binaryNum
         editText.text.clear()
+        textViewResult.text = ""
 
 
         // Debugging the twosCompliment
