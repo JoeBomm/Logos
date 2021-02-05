@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import kotlin.random.Random
 
@@ -21,12 +22,29 @@ class TwosComplimentActivity : AppCompatActivity() {
         // function to update textViewBinary
         val randomNumber = Random.nextInt(1, 256)
         val textView = findViewById<TextView>(R.id.textViewBinary)
+        val editText = findViewById<EditText>(R.id.editTextBinaryInput)
         val binaryNum = toBinary(randomNumber)
         textView.text = binaryNum
+        editText.text.clear()
+
 
         // Debugging the twosCompliment
-        val textViewDe = findViewById<TextView>(R.id.textViewDebug)
-        textViewDe.text = twosCompliment(binaryNum)
+//        val textViewDe = findViewById<TextView>(R.id.textViewDebug)
+//        textViewDe.text = twosCompliment(binaryNum)
+    }
+
+    fun submitButton(view: View) {
+        // function to control submit button. checks user input
+        val textView = findViewById<TextView>(R.id.textViewResult)
+        val editText = findViewById<EditText>(R.id.editTextBinaryInput)
+        val userInput = editText.text.toString()
+
+        // how to remove redundancy of calling this variable twice? Scope problem
+        val textViewBinary = findViewById<TextView>(R.id.textViewBinary)
+        val binary = textViewBinary.text.toString()
+        if(checkUserInput(userInput, binary)) {
+            textView.text = "True"
+        } else {textView.text = "False"}
     }
 
     private fun toBinary(number: Int) : String {
@@ -82,4 +100,8 @@ class TwosComplimentActivity : AppCompatActivity() {
 
         return String(num).reversed()
     }
+
+    private fun checkUserInput(binary: String, input: String) : Boolean =
+        input == twosCompliment(binary)
+
 }
