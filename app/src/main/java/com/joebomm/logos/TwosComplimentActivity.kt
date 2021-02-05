@@ -3,6 +3,7 @@ package com.joebomm.logos
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import kotlin.random.Random
 
@@ -10,19 +11,26 @@ class TwosComplimentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twos_compliment)
+
+        // is there a better way to do this?? (call function to set binary when starting activity)
+        val button = findViewById<Button>(R.id.buttonNewBinary)
+        button.callOnClick()
     }
 
     fun updateBinary(view: View) {
+        // function to update textViewBinary
         val randomNumber = Random.nextInt(1, 256)
         val textView = findViewById<TextView>(R.id.textViewBinary)
         val binaryNum = toBinary(randomNumber)
         textView.text = binaryNum
 
+        // Debugging the twosCompliment
         val textViewDe = findViewById<TextView>(R.id.textViewDebug)
         textViewDe.text = twosCompliment(binaryNum)
     }
 
     private fun toBinary(number: Int) : String {
+        // function to get binary number string
         var num = number
         var result = ""
         while(num>1) {
@@ -31,14 +39,18 @@ class TwosComplimentActivity : AppCompatActivity() {
         }
         result +=num.toString()
 
+        // make small binary numbers a full byte
         while(result.length<8) {
             result+="0"
         }
 
+        // could skip the reversing and wait until the final step of twos compliment?
+        // would have to adjust algorithms, would be more efficient. Insignificant for 8 bits
         return result.reversed()
     }
 
     private fun onesCompliment(number: String) : String {
+        // function to flip the bits of the byte
         var num = number.toCharArray()
         for(i in num.indices) {
             if(num[i]=='0') {
@@ -51,9 +63,11 @@ class TwosComplimentActivity : AppCompatActivity() {
     }
 
     private fun twosCompliment(number: String) : String {
+        // function to add 1 to the flipped byte
         val num = onesCompliment(number.reversed()).toCharArray()
         var carry = false
         var index = 0
+
         do {
             if (num[index]=='0') {
                 num[index]='1'
