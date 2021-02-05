@@ -1,5 +1,5 @@
 # Logos
-Android application to learn logic gates and binary methods
+Android application to help users learn logic gates and binary methods
 
 Written in Kotlin.
 
