@@ -7,23 +7,24 @@
     tools:context=".TwosComplimentActivity">
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonSubmitBinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:text="@string/button_submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/editTextNumber3"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber3"
         app:layout_constraintVertical_bias="0.184" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/buttonNewBinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="updateBinary"
         android:text="@string/button_new"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button8"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonSubmitBinary"
         app:layout_constraintEnd_toEndOf="@+id/editTextNumber3" />
 
     <EditText
@@ -36,14 +37,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBinary" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewBinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:text="TextView"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
