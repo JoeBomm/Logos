@@ -3,7 +3,18 @@ import kotlin.random.Random
 
 fun main(args : Array<String>) {
   // Debugging. Will remove main from this file.
-  circuitGame()
+  /* circuitGame() */
+
+  var gate: Gate
+  var A: Input
+  var B: Input
+
+  for(i in 0..20) {
+    A = Input(true, 'A')
+    B = Input(true, 'B')
+    gate = randomGate(A, B, 2)
+    gate.print()
+  }
 
 }
 
@@ -98,7 +109,7 @@ fun randomGate(A: Input, B: Input, flag: Int): Gate {
 }
 
 fun doubleGate(A: Input, B: Input, flag:Int): Gate {
-  return when(Random.nextInt(0,7)) {
+  return when(Random.nextInt(0,6)) {
        0 -> Not(randomGate(A, B, flag-1))
        1 -> And(randomGate(A, B, flag-1), randomGate(A, B, flag-1))
        2 -> Or(randomGate(A, B, flag-1), randomGate(A, B, flag-1))
@@ -110,7 +121,7 @@ fun doubleGate(A: Input, B: Input, flag:Int): Gate {
 }
 
 fun leftGate(A: Input, B:Input, flag:Int): Gate {
-  return when(Random.nextInt(0,7)) {
+  return when(Random.nextInt(0,6)) {
        0 -> Not(randomGate(A, B, flag-1))
        1 -> And(randomGate(A, B, flag-1), randomInput(A, B))
        2 -> Or(randomGate(A, B, flag-1), randomInput(A, B))
@@ -122,7 +133,7 @@ fun leftGate(A: Input, B:Input, flag:Int): Gate {
 }
 
 fun rightGate(A: Input, B:Input, flag:Int): Gate {
-  return when(Random.nextInt(0,7)) {
+  return when(Random.nextInt(0,6)) {
        0 -> Not(randomGate(A, B, flag-1))
        1 -> And(randomInput(A, B), randomGate(A, B, flag-1))
        2 -> Or(randomInput(A, B), randomGate(A, B, flag-1))
@@ -150,7 +161,7 @@ fun randomBool(): Boolean {
 
 
 
-class Input(val value: Boolean, val name: Char) {}
+data class Input(val value: Boolean, val name: Char)
 
 open class Gate(val input: Input) {
   open var name : String = "GATE"
@@ -175,8 +186,6 @@ open class Gate(val input: Input) {
   open fun print(): Unit {
     println(functionString)
   }
-
-
 }
 
 class Not : Gate {
@@ -192,7 +201,7 @@ class Not : Gate {
 }
 
 
-  class Buffer : Gate {
+class Buffer : Gate {
     override var name = "BUFFER"
     override var value = input.value
     override var functionString = "$name(${input.name})"
