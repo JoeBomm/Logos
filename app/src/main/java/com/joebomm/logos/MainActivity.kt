@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    /** Called when the user taps the Two's Compliment button */
+    /** Called when the user taps the Two's Complement button */
     fun openTwosCompliment(view: View) {
         val intent = Intent(this, TwosComplementActivity::class.java).apply {}
         startActivity(intent)
