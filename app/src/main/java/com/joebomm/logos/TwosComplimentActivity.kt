@@ -44,9 +44,12 @@ class TwosComplimentActivity : AppCompatActivity() {
         // how to remove redundancy of calling this variable twice? Scope problem
         val textViewBinary = findViewById<TextView>(R.id.textViewBinary)
         val binary = textViewBinary.text.toString()
-        if(checkUserInput(userInput, binary)) {
-            textView.text = "True"
-        } else {textView.text = "False"}
+        if(userInput.length==8){
+            if(checkUserInput(userInput, binary)) {
+                textView.text = getString(R.string.button_true)
+            } else {textView.text = getString(R.string.button_false)}
+        } else {textView.text = "Input must be 8 bits!"}
+
     }
 
     private fun toBinary(number: Int) : String {

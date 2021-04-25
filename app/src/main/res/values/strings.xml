@@ -8,4 +8,31 @@
     <string name="edit_binary">00000000</string>
     <string name="button_new">New</string>
     <string name="add_image">Add Image</string>
+    <string name="button_true">True</string>
+    <string name="button_false">False</string>
+    <string name="text_true_or_false">True or False?</string>
+    <string name="text_Correct">Correct!</string>
+    <string name="text_Wrong">Wrong!</string>
+    <string name="text_twos_complement">Two\'s Complement</string>
+    <string name="button_khan_academy">Khan Academy</string>
+    <string name="button_wikipedia">Wikipedia</string>
+    <string name ="text_2s_about">Two’s complement is a mathematical operation to find the negative value of a signed binary number.
+        For example, the base 10 number 8 in signed binary (using 8 bits) is 00001000 and -8 is 11111000.
+        \nYour challenge is to perform this mathematical operation.
+        \n\nThe steps to follow to accomplish this are as follows:
+    </string>
+
+    <string name="text_2s_steps">
+        \t1. Flip the bits
+	    \n\t\tAll 0s become 1s and 1s become 0s
+        \n\t2. Add 1 to the new number
+	    \n\t\tDetails for adding in binary can be found in this free Khan Academy video
+    </string>
+
+    <string name="text_t_or_f_about">The goal of this activity is to identify whether or not the circuit will output True or False.
+        Using the assigned input values (Either A or B or both) try identifying the proper output.
+        \nThe gates available for the circuit are, NOT, AND, OR, NAND, NOR, XOR, XNOR.
+        \nInformation showing the symbols and truth tables for these gates can be found in this Wikipedia article about logic gates.
+    </string>
+
 </resources>

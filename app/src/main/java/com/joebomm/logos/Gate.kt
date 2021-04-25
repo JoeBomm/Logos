@@ -12,6 +12,8 @@ open class Gate(val input: Input) {
     open var value : Boolean = input.value
     open var functionString : String = "$name(${input.name})"
     open var img : Int = 0
+    open var left = input
+    open var right = Input(false, ' ')
 
     constructor(input: Gate): this(input.input) {
         this.functionString = "${name}(${input.functionString})"
@@ -40,6 +42,8 @@ class Not : Gate {
     override var value = !input.value
     override var functionString = "$name(${input.name})"
     override var img = R.drawable.not
+    override var left = input
+
     constructor(input: Input) : super(input){}
 
     constructor(input: Gate) : super(input) {
@@ -54,6 +58,7 @@ class Buffer : Gate {
     override var value = input.value
     override var functionString = "$name(${input.name})"
     override var img = R.drawable.buffer
+    override var left = input
 
 
     constructor(input: Input) : super(input){}
@@ -68,6 +73,9 @@ class And(left: Input, right: Input): Gate(left, right) {
     override var value = left.value && right.value
     override var functionString = "(${left.name})$name(${right.name})"
     override var img = R.drawable.and
+    override var left = left
+    override var right = right
+
 
 
 
@@ -90,6 +98,8 @@ class Or(left: Input, right: Input): Gate(left, right) {
     override var value = left.value || right.value
     override var functionString = "(${left.name})$name(${right.name})"
     override var img = R.drawable.or
+    override var left = left
+    override var right = right
 
 
     constructor(left: Input, right: Gate) : this(left, right.input){
@@ -113,6 +123,8 @@ class Nand(left: Input, right: Input): Gate(left, right) {
     override var value = !(left.value && right.value)
     override var functionString = "(${left.name})$name(${right.name})"
     override var img = R.drawable.nand
+    override var left = left
+    override var right = right
 
 
     constructor(left: Input, right: Gate) : this(left, right.input){
@@ -134,6 +146,8 @@ class Nor(left: Input, right: Input): Gate(left, right) {
     override var value = !(left.value || right.value)
     override var functionString = "(${left.name})$name(${right.name})"
     override var img = R.drawable.nor
+    override var left = left
+    override var right = right
 
 
     constructor(left: Input, right: Gate) : this(left, right.input){
@@ -155,6 +169,8 @@ class Xor(left: Input, right: Input): Gate(left, right) {
     override var value = left.value!=right.value
     override var functionString = "(${left.name})$name(${right.name})"
     override var img = R.drawable.xor
+    override var left = left
+    override var right = right
 
 
     constructor(left: Input, right: Gate) : this(left, right.input){
@@ -176,6 +192,8 @@ class Xnor(left: Input, right: Input): Gate(left, right) {
     override var value = left.value==right.value
     override var functionString = "(${left.name})$name(${right.name})"
     override var img = R.drawable.xnor
+    override var left = left
+    override var right = right
 
 
     constructor(left: Input, right: Gate) : this(left, right.input){
