@@ -8,10 +8,10 @@ import android.widget.EditText
 import android.widget.TextView
 import kotlin.random.Random
 
-class TwosComplimentActivity : AppCompatActivity() {
+class TwosComplementActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_twos_compliment)
+        setContentView(R.layout.activity_twos_complement)
 
         // is there a better way to do this?? (call function to set binary when starting activity)
         val button = findViewById<Button>(R.id.buttonNewBinary)

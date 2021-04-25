@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     /** Called when the user taps the Two's Compliment button */
     fun openTwosCompliment(view: View) {
-        val intent = Intent(this, TwosComplimentActivity::class.java).apply {}
+        val intent = Intent(this, TwosComplementActivity::class.java).apply {}
         startActivity(intent)
     }
 
