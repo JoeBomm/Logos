@@ -4,6 +4,10 @@
     <string name="button_true_or_false">True or False</string>
     <string name="button_about">About</string>
     <string name="button_submit">Submit</string>
+    <string name="button_clear">C</string>
+    <string name="button_1">1</string>
+    <string name="button_0">0</string>
+    <string name="button_backspace">&lt;</string>
     <string name="main_title">Logos</string>
     <string name="edit_binary">00000000</string>
     <string name="button_new">New</string>
@@ -14,6 +18,8 @@
     <string name="text_Correct">Correct!</string>
     <string name="text_Wrong">Wrong!</string>
     <string name="text_twos_complement">Two\'s Complement</string>
+    <string name="text_a">A=#</string>
+    <string name="text_b">B=#</string>
     <string name="button_khan_academy">Khan Academy</string>
     <string name="button_wikipedia">Wikipedia</string>
     <string name ="text_2s_about">Two’s complement is a mathematical operation to find the negative value of a signed binary number.
@@ -34,5 +40,6 @@
         \nThe gates available for the circuit are, NOT, AND, OR, NAND, NOR, XOR, XNOR.
         \nInformation showing the symbols and truth tables for these gates can be found in this Wikipedia article about logic gates.
     </string>
+    <string name="text_bit_length_warning">Input must be 8 bits!</string>
 
 </resources>

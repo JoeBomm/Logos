@@ -4,45 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TwosComplimentActivity">
+    tools:context=".TwosComplementActivity">
 
     <Button
         android:id="@+id/buttonSubmitBinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="88dp"
         android:onClick="submitButton"
         android:text="@string/button_submit"
-        app:layout_constraintStart_toStartOf="@+id/editTextBinaryInput"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBinaryInput" />
+        app:layout_constraintEnd_toEndOf="@+id/oneButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInput" />
 
     <Button
         android:id="@+id/buttonNewBinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="updateBinary"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:onClick="newButton"
         android:text="@string/button_new"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonSubmitBinary"
-        app:layout_constraintEnd_toEndOf="@+id/editTextBinaryInput" />
-
-    <EditText
-        android:id="@+id/editTextBinaryInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:ems="10"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBinary" />
+        app:layout_constraintStart_toStartOf="@+id/zeroButton" />
 
     <TextView
         android:id="@+id/textViewBinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:text="TextView"
+        android:layout_marginTop="100dp"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -55,9 +47,65 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/oneButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="oneButton"
+        android:text="@string/button_1"
+        app:layout_constraintStart_toEndOf="@+id/clearButton"
+        app:layout_constraintTop_toTopOf="@+id/zeroButton" />
+
+    <Button
+        android:id="@+id/zeroButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="zeroButton"
+        android:text="@string/button_0"
+        app:layout_constraintEnd_toStartOf="@+id/backspaceButton"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNewBinary" />
+
+    <Button
+        android:id="@+id/backspaceButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:onClick="backspaceButton"
+        android:text="@string/button_backspace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/zeroButton" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:onClick="clearButton"
+        android:text="@string/button_clear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/oneButton" />
+
+    <TextView
+        android:id="@+id/textViewInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 </androidx.constraintlayout.widget.ConstraintLayout>

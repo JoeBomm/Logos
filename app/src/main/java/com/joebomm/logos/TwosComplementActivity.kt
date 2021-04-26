@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import kotlin.random.Random
 
@@ -18,28 +17,72 @@ class TwosComplementActivity : AppCompatActivity() {
         button.callOnClick()
     }
 
+    fun backspaceButton(view: View) {
+        val inputText: TextView = findViewById<TextView>(R.id.textViewInput)
+
+        if (inputText.text.isNotEmpty()) {
+            val newText = inputText.text.slice(0 until inputText.text.length-1)
+            inputText.text=newText
+        }
+
+
+    }
+
+    fun oneButton(view: View) {
+        val inputText = findViewById<TextView>(R.id.textViewInput)
+
+        if (inputText.text.length < 8) {
+            var newText = inputText.text
+            newText= newText.toString() + "1"
+            inputText.text=newText
+        }
+
+    }
+
+    fun zeroButton(view: View) {
+        val inputText = findViewById<TextView>(R.id.textViewInput)
+
+        if (inputText.text.length < 8) {
+            var newText = inputText.text
+            newText= newText.toString() + "0"
+            inputText.text=newText
+        }
+
+    }
+
+    fun clearButton(view: View) {
+        val editText = findViewById<TextView>(R.id.textViewInput)
+        editText.text=""
+
+    }
+
+    fun newButton(view: View) {
+        val editText = findViewById<TextView>(R.id.textViewInput)
+        val textViewResult = findViewById<TextView>(R.id.textViewResult)
+
+        editText.text=""
+        textViewResult.text = ""
+
+        updateBinary(view)
+    }
+
     fun updateBinary(view: View) {
         // function to update textViewBinary
         val randomNumber = Random.nextInt(1, 256)
         val textView = findViewById<TextView>(R.id.textViewBinary)
-        val textViewResult = findViewById<TextView>(R.id.textViewResult)
-        val editText = findViewById<EditText>(R.id.editTextBinaryInput)
         val binaryNum = toBinary(randomNumber)
         textView.text = binaryNum
-        editText.text.clear()
-        textViewResult.text = ""
 
 
         // Debugging the twosCompliment
-//        val textViewDe = findViewById<TextView>(R.id.textViewDebug)
-//        textViewDe.text = twosCompliment(binaryNum)
     }
 
     fun submitButton(view: View) {
         // function to control submit button. checks user input
         val textView = findViewById<TextView>(R.id.textViewResult)
-        val editText = findViewById<EditText>(R.id.editTextBinaryInput)
+        val editText = findViewById<TextView>(R.id.textViewInput)
         val userInput = editText.text.toString()
+
 
         // how to remove redundancy of calling this variable twice? Scope problem
         val textViewBinary = findViewById<TextView>(R.id.textViewBinary)
@@ -48,7 +91,7 @@ class TwosComplementActivity : AppCompatActivity() {
             if(checkUserInput(userInput, binary)) {
                 textView.text = getString(R.string.button_true)
             } else {textView.text = getString(R.string.button_false)}
-        } else {textView.text = "Input must be 8 bits!"}
+        } else {textView.text = getString(R.string.text_bit_length_warning)}
 
     }
 
@@ -74,7 +117,7 @@ class TwosComplementActivity : AppCompatActivity() {
 
     private fun onesCompliment(number: String) : String {
         // function to flip the bits of the byte
-        var num = number.toCharArray()
+        val num = number.toCharArray()
         for(i in num.indices) {
             if(num[i]=='0') {
                 num[i]='1'
@@ -88,7 +131,7 @@ class TwosComplementActivity : AppCompatActivity() {
     private fun twosCompliment(number: String) : String {
         // function to add 1 to the flipped byte
         val num = onesCompliment(number.reversed()).toCharArray()
-        var carry = false
+        var carry: Boolean
         var index = 0
 
         do {
