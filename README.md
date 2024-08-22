@@ -1,12 +1,6 @@
 # Logos
-Android application to help users learn logic gates and binary methods
 
-Written in Kotlin.
+This was a project I made for a directed study course. 
 
-Planned Features:
+It's an android application written in Kotlin, the purpose is to help users learn about Logic Gates and calculating the 2s compliment of a binary number
 
-- Presented a random binary number, the user must input the correct
-  two's compliment
-- A random circuit composed of logic gates and various input is presented
-  to the user.  The user must select whether the output is true or false
-  (light bulb turns on or not, 1 or 0)
